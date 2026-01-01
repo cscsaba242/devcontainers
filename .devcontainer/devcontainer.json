@@ -1,0 +1,14 @@
+{
+  "name": "offline-friendly-container",
+  "image": "ubuntu:22.04",
+  "remoteUser": "root",
+  "containerEnv": {
+    "HTTP_PROXY": "http://tudas-proxy.rd.hu.t-internal.com:3128",
+    "HTTPS_PROXY": "http://tudas-proxy.rd.hu.t-internal.com:3128",
+    "NO_PROXY": "localhost,127.0.0.1"
+  },
+  "postCreateCommand": "bash /workspaces/devcont/.devcontainer/postCreateCommand.sh",
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ]
+}
