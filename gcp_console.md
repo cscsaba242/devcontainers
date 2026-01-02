@@ -34,15 +34,14 @@ sudo apt install code
 ### DOCKER
 install_docker_ubuntu.sh
 
-## CODESERVER - SEE ACCESS
-// password
-
-cat /home/strongfrakk/.config/code-server/config.yaml
-
-// to access from browser 1/2
+# CLIENT
+## VSCODE SERVER
+### START
+// start access from browser 1/2
 
 code-server --bind-addr 0.0.0.0:8080
 
+### ACCESS
 // to access from browser 2/2
 
 ssh -L 8080:localhost:8080 user@szerver`
@@ -50,6 +49,11 @@ ssh -L 8080:localhost:8080 user@szerver`
 // browser
 
 http://localhost:8080
+
+
+### PASSWORD
+
+cat /home/strongfrakk/.config/code-server/config.yaml
 
 ### VSCODE JAVA DEVELOPMENT PLUGINS
 
