@@ -13,9 +13,15 @@ Target tags: vscode-server
 Source filters IP ranges 0.0.0.0/0
 
 ## ACCESS
+### LINUX
 export REMOTE=34.116.195.168
 
 ssh -p 22 strongfrakk@${REMOTE}
+
+### WINDOWS
+set REMOTE=34.116.195.168
+
+ssh -p 22 strongfrakk@%REMOTE%
 
 ## COPY SOMETHING
 scp init.sh strongfrakk@${REMOTE}:/home/strongfrakk
@@ -36,6 +42,9 @@ install_docker_ubuntu.sh
 
 # CLIENT
 ## VSCODE SERVER
+### REMOTE ACCESS FROM CLIENT
+ssh -p 22 strongfrakk@%REMOTE%
+
 ### START
 // start access from browser 1/2
 
