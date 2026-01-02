@@ -1,5 +1,7 @@
 #!/bin/bash
-cp /workspaces/devcont/.devcontainer/95proxies /etc/apt/apt.conf.d/95proxies
+SECONDS=0
+client=/workspaces/devcontainers
+cp "/workspaces/devcontainers/.devcontainer/95proxies" /etc/apt/apt.conf.d/95proxies
 apt-get update
 apt-get install -y docker.io curl build-essential git libssl-dev libdbus-1-dev pkg-config unzip zip
 curl -Lo helm.tar.gz https://get.helm.sh/helm-v3.12.0-linux-amd64.tar.gz
@@ -21,7 +23,11 @@ curl https://sh.rustup.rs -sSf | sh
 echo 'source $HOME/.cargo/env' >> ~/.bashrc
 source $HOME/.cargo/env
 cargo install edc-connector-tui
-echo 'source "$HOME/.sdkman/bin/sdkman-init.sh"' >> ~/.bashrc
+
+curl -s "https://get.sdkman.io" | bash
+echo 'source "$HOME/.sdkman/bin/sdkman-init.sh"' >> ~/.bashrc1
 source "$HOME/.sdkman/bin/sdkman-init.sh"
+cp "$client/.devcontainer/.sdkmanrc" "$client/.sdkmanrc"
 sdk env install
 curl https://logdy.dev/install-silent.sh | sh
+echo "Runtime: ${SECONDS}s"
