@@ -18,7 +18,7 @@ export REMOTE=34.116.195.168
 
 ssh -p 22 strongfrakk@${REMOTE}
 
-ssh -p 22 strongfrakk@$%REMOTE%
+ssh -p 22 strongfrakk@%REMOTE%
 
 ### WINDOWS
 set REMOTE=34.116.195.168
