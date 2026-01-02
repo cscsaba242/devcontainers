@@ -18,6 +18,8 @@ export REMOTE=34.116.195.168
 
 ssh -p 22 strongfrakk@${REMOTE}
 
+ssh -p 22 strongfrakk@$%REMOTE%
+
 ### WINDOWS
 set REMOTE=34.116.195.168
 
@@ -61,13 +63,7 @@ ssh -L 8080:localhost:8080 strongfrakk@%REMOTE%
 
 http://localhost:8080
 
-
-### PASSWORD
-
-cat /home/strongfrakk/.config/code-server/config.yaml
-
-### VSCODE JAVA DEVELOPMENT PLUGINS
-
+### PLUGINS
 https://code.visualstudio.com/docs/languages/java
 
 Language Support for Java™ by Red Hat
@@ -81,4 +77,13 @@ Maven for Java
 Project Manager for Java
 
 Visual Studio IntelliCode
+
+### UNCAT
+.gitignore **/bin
+
+### PASSWORD
+
+cat /home/strongfrakk/.config/code-server/config.yaml
+
+
 
