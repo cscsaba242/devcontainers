@@ -53,7 +53,9 @@ code-server --bind-addr 0.0.0.0:8080
 ### ACCESS
 // to access from browser 2/2
 
-ssh -L 8080:localhost:8080 user@szerver`
+ssh -L 8080:localhost:8080 strongfrakk@$REMOTE
+
+ssh -L 8080:localhost:8080 strongfrakk@%REMOTE%
 
 // browser
 
