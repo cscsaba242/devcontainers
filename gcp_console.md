@@ -34,19 +34,22 @@ sudo apt install code
 ### DOCKER
 install_docker_ubuntu.sh
 
-## CODESERVER
+## CODESERVER - SEE ACCESS
+// password
+
 cat /home/strongfrakk/.config/code-server/config.yaml
+
+// to access from browser 1/2
 
 code-server --bind-addr 0.0.0.0:8080
 
-#Rename-Item -Path "id_rsa.txt" -NewName "id_rsa"
+// to access from browser 2/2
+
 ssh -L 8080:localhost:8080 user@szerver`
 
-###
-`kliens elérés browserből: http://localhost:8080`
+// browser
 
-## OTHER 
-https://code.visualstudio.com/docs/devcontainers/containers
+http://localhost:8080
 
 ### VSCODE JAVA DEVELOPMENT PLUGINS
 
@@ -61,5 +64,6 @@ Test Runner for Java
 Maven for Java
 
 Project Manager for Java
+
 Visual Studio IntelliCode
 
