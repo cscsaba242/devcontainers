@@ -7,8 +7,18 @@
     "HTTPS_PROXY": "http://tudas-proxy.rd.hu.t-internal.com:3128",
     "NO_PROXY": "localhost,127.0.0.1"
   },
-  "postCreateCommand": "bash /workspaces/devcont/.devcontainer/postCreateCommand.sh",
+  "postCreateCommand": "bash /workspaces/devcontainers/.devcontainer/postCreateCommand.sh",
   "mounts": [
-    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
-  ]
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+    "source=/home/cscsaba/github/Connector,target=/workspaces/devcontainers/Connector,type=bind"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "redhat.java",
+        "vscjava.vscode-java-debug",
+        "vscjava.vscode-java-test"
+      ]
+    }
+  }
 }

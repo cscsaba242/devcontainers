@@ -1,9 +1,11 @@
 #!/bin/bash
 SECONDS=0
 client=/workspaces/devcontainers
-cp "/workspaces/devcontainers/.devcontainer/95proxies" /etc/apt/apt.conf.d/95proxies
+echo "SETTING PROXIES"
+cp "${client}/.devcontainer/95proxies" /etc/apt/apt.conf.d/95proxies
+cp "${client}/.devcontainer/gradle.properties" "${client}/Connector"
 apt-get update
-apt-get install -y docker.io curl build-essential git libssl-dev libdbus-1-dev pkg-config unzip zip
+apt-get install -y docker.io curl build-essential git libssl-dev libdbus-1-dev pkg-config unzip zip tmux
 curl -Lo helm.tar.gz https://get.helm.sh/helm-v3.12.0-linux-amd64.tar.gz
 tar -xzf helm.tar.gz
 mv linux-amd64/helm /usr/local/bin/helm
@@ -19,15 +21,23 @@ tar -xzf k9s.tar.gz
 chmod +x k9s
 mv k9s /usr/local/bin/k9s
 rm k9s.tar.gz
-curl https://sh.rustup.rs -sSf | sh
-echo 'source $HOME/.cargo/env' >> ~/.bashrc
-source $HOME/.cargo/env
-cargo install edc-connector-tui
+
+# curl https://sh.rustup.rs -sSf | sh
+# echo 'source $HOME/.cargo/env' >> ~/.bashrc
+# source $HOME/.cargo/env
+# cargo install edc-connector-tui
 
 curl -s "https://get.sdkman.io" | bash
-echo 'source "$HOME/.sdkman/bin/sdkman-init.sh"' >> ~/.bashrc1
+echo 'source "$HOME/.sdkman/bin/sdkman-init.sh"' >> ~/.bashrc
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 cp "$client/.devcontainer/.sdkmanrc" "$client/.sdkmanrc"
 sdk env install
 curl https://logdy.dev/install-silent.sh | sh
+
+helm version
+docker version | grep "Version" | head -n 1
+
+cd ./Connector
+./gradlew
+
 echo "Runtime: ${SECONDS}s"
