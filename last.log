@@ -1,0 +1,5 @@
+THIS TEXT BELOW SHOWS THE 'COMMAND' AND ITS 'OUTPUT' \n
+COMMAND: \n
+ ./gradlew :system-tests:bom-tests:test --tests 'BomSmokeTests$ControlPlaneDcp' --rerun-tasks
+OUTPUT: \n
+bash: ./gradlew: No such file or directory

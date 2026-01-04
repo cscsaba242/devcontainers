@@ -5,7 +5,7 @@ echo "SETTING PROXIES"
 cp "${client}/.devcontainer/95proxies" /etc/apt/apt.conf.d/95proxies
 cp "${client}/.devcontainer/gradle.properties" "${client}/Connector"
 apt-get update
-apt-get install -y docker.io curl build-essential git libssl-dev libdbus-1-dev pkg-config unzip zip tmux
+apt-get install -y docker.io curl build-essential git libssl-dev libdbus-1-dev pkg-config unzip zip mitmproxy vim net-tools tmux tcpdump lsof
 
 #curl -Lo helm.tar.gz https://get.helm.sh/helm-v3.12.0-linux-amd64.tar.gz
 #tar -xzf helm.tar.gz
@@ -41,4 +41,14 @@ docker version | grep "Version" | head -n 1
 cd ./Connector
 ./gradlew
 
+cat ./.devcontainer/include_bash.sh >> ~/.bashrc
+source ~/.bashrc
+
 echo "Runtime: ${SECONDS}s"
+
+# tmux new-session -n server 'bash' \; \
+#   new-window -n mitmproxy 'mitmproxy -p 8888' \; \
+#   new-window -n top 'top' \; \
+#   new-window -n tail 'tail -fn 200 ./Connector/last.log' \;
+
+

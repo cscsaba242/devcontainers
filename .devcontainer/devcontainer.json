@@ -1,11 +1,12 @@
 {
-  "name": "offline-friendly-container",
-  "image": "ubuntu:22.04",
+  "name": "edc connector tests",
+  "image": "ubuntu:22.04", 
   "remoteUser": "root",
   "containerEnv": {
+    "DEBIAN_FRONTEND": "noninteractive",
     "HTTP_PROXY": "http://tudas-proxy.rd.hu.t-internal.com:3128",
     "HTTPS_PROXY": "http://tudas-proxy.rd.hu.t-internal.com:3128",
-    "NO_PROXY": "localhost,127.0.0.1"
+    "JAVA_TOOL_OPTIONS": "-Dhttp.proxyHost=tudas-proxy.rd.hu.t-internal.com -Dhttp.proxyPort=3128 -Dhttps.proxyHost=tudas-proxy.rd.hu.t-internal.com -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts="
   },
   "postCreateCommand": "bash /workspaces/devcontainers/.devcontainer/postCreateCommand.sh",
   "mounts": [
@@ -17,8 +18,11 @@
       "extensions": [
         "redhat.java",
         "vscjava.vscode-java-debug",
-        "vscjava.vscode-java-test"
+        "vscjava.vscode-java-test",
+        "dkurokawa.vscode-port-monitor",
+        "george-alisson.html-preview-vscode"
       ]
     }
   }
+
 }
