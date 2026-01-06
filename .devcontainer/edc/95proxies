@@ -1,0 +1,2 @@
+Acquire::http::Proxy "http://tudas-proxy.rd.hu.t-internal.com:3128";
+Acquire::https::Proxy "http://tudas-proxy.rd.hu.t-internal.com:3128";

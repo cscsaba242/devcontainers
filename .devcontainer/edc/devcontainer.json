@@ -1,0 +1,30 @@
+{
+  "name": "edc connector tests", 
+  "image": "ubuntu:22.04", 
+  "remoteUser": "root",
+  "containerEnv": {
+    "DEBIAN_FRONTEND": "noninteractive",
+    "HTTP_PROXY": "http://tudas-proxy.rd.hu.t-internal.com:3128",
+    "HTTPS_PROXY": "http://tudas-proxy.rd.hu.t-internal.com:3128",
+    "JAVA_TOOL_OPTIONS": "-Dhttp.proxyHost=tudas-proxy.rd.hu.t-internal.com -Dhttp.proxyPort=3128 -Dhttps.proxyHost=tudas-proxy.rd.hu.t-internal.com -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts="
+  },
+  "initializeCommand": "echo 'init'",
+  "postCreateCommand": "bash /workspaces/devcontainers/.devcontainer/edc/postCreateCommand.sh",
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+    "source=/home/cscsaba/github/Connector,target=/workspaces/devcontainers/Connector,type=bind"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "redhat.java",
+        "vscjava.vscode-java-debug",
+        "vscjava.vscode-java-test",
+        "dkurokawa.vscode-port-monitor",
+        "george-alisson.html-preview-vscode",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
+
+}
