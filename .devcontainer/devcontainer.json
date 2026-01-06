@@ -20,7 +20,8 @@
         "vscjava.vscode-java-debug",
         "vscjava.vscode-java-test",
         "dkurokawa.vscode-port-monitor",
-        "george-alisson.html-preview-vscode"
+        "george-alisson.html-preview-vscode",
+        "ms-azuretools.vscode-docker"
       ]
     }
   }

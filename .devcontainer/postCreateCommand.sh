@@ -41,7 +41,7 @@ docker version | grep "Version" | head -n 1
 cd ./Connector
 ./gradlew
 
-cat ./.devcontainer/include_bash.sh >> ~/.bashrc
+echo "source /workspaces/devcontainers/.devcontainer/include_bash.sh" >> ~/.bashrc
 source ~/.bashrc
 
 echo "Runtime: ${SECONDS}s"

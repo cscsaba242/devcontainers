@@ -1,4 +1,7 @@
 
+export PROXY_PORT=8888
+export GRADLE_OPTS=""
+
 alias g="./gradlew"
 alias ns="netstat -tulnp"
 alias ss="ss -tulnp"
@@ -17,4 +20,20 @@ logcmd() {
   # Read stdin and log output
   echo "OUTPUT: " >> last.log
   "$@" 2> >(tee -a last.log >&2)
+}
+
+setproxy() {
+  export HTTP_PROXY="http://127.0.0.1:${PROXY_PORT}"
+  export HTTPS_PROXY="http://127.0.0.1:${PROXY_PORT}"
+  unset NO_PROXY
+  export JAVA_TOOL_OPTIONS="-Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=${PROXY_PORT} -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=${PROXY_PORT} -DnonProxy="
+  echo "Proxies set to 127.0.0.1:${PROXY_PORT}"
+}
+
+unsetproxy() {
+  export HTTP_PROXY="http://tudas-proxy.rd.hu.t-internal.com:3128"
+  export HTTPS_PROXY="http://tudas-proxy.rd.hu.t-internal.com:3128"
+  export JAVA_TOOL_OPTIONS="-Dhttp.proxyHost=tudas-proxy.rd.hu.t-internal.com -Dhttp.proxyPort=3128 -Dhttps.proxyHost=tudas-proxy.rd.hu.t-internal.com -Dhttps.proxyPort=3128 -DnonProxy="
+  unset NO_PROXY
+  echo "Proxies set to tudas-proxy.rd.hu.t-internal.com:3128"
 }

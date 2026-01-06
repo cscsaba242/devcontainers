@@ -1,5 +1,15 @@
-./gradlew :system-tests:bom-tests:test --tests "BomSmokeTests\$ControlPlaneDcp.assertRuntimeReady" -DincludeTags="EndToEndTest" --rerun-tasks --info --debug-jvm
+./gradlew :system-tests:bom-tests:test --tests 'BomSmokeTests$ControlPlaneDcp' -DincludeTags="EndToEndTest" --rerun-tasks --info --debug-jvm
 logdy --port 7070
+./gradlew :system-tests:bom-tests:test --tests 'ContractNegotiationEndToEndTest' -DincludeTags="EndToEndTest" --rerun-tasks
+
+./gradlew :system-tests:e2e-transfer-test:runner:test --tests 'ContractNegotiationEndToEndTest' -DincludeTags="EndToEndTest"
+./gradlew :system-tests:e2e-transfer-test:runner:test --tests 'ContractNegotiationEndToEndTest' -DincludeTags="PostgresqlIntegrationTest" --info --rerun-tasks
+
+./gradlew :system-tests:e2e-transfer-test:runner:test --tests 'ProvisioningTransferConsumerEndToEndTest' -DincludeTags="PostgresqlIntegrationTest" --info --rerun-tasks
+
+./gradlew :system-tests:e2e-transfer-test:runner:test --tests 'TransferStreamingEndToEndTest' -DincludeTags='EndToEndTest' --info --rerun-tasks | tee ../.devcontainer/testlogs/TransferStreamingEndToEndTest_EndToEndTest.log
+
+
 export JAVA_TOOL_OPTIONS=""
 export JAVA_TOOL_OPTIONS="-Dhttp.proxyHost=tudas-proxy.rd.hu.t-internal.com -Dhttp.proxyPort=3128 -Dhttps.proxyHost=tudas-proxy.rd.hu.t-internal.com -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts="
 export 
