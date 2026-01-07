@@ -6,7 +6,7 @@ cp "${client}/95proxies" /etc/apt/apt.conf.d/95proxies
 cp "${client}/gradle.properties" "/workspaces/devcontainers/Connector"
 apt-get update
 apt-get install -y docker.io curl build-essential git libssl-dev libdbus-1-dev pkg-config unzip zip mitmproxy vim net-tools tmux tcpdump lsof
-git config --global --add safe.directory "/workspaces"
+git config --global --add safe.directory /workspaces/devcontainers/edcconnectoradapter
 
 
 curl -s "https://get.sdkman.io" | bash
