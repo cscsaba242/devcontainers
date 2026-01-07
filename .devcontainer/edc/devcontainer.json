@@ -1,7 +1,8 @@
 {
   "name": "edc connector tests", 
   "image": "ubuntu:22.04", 
-  "remoteUser": "root",
+  "containerUser": "vscode",
+  
   "containerEnv": {
     "DEBIAN_FRONTEND": "noninteractive",
     "HTTP_PROXY": "http://tudas-proxy.rd.hu.t-internal.com:3128",
