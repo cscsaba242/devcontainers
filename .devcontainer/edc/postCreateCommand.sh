@@ -14,6 +14,7 @@ echo 'source "$HOME/.sdkman/bin/sdkman-init.sh"' >> ~/.bashrc
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 cp "$client/.devcontainer/.sdkmanrc" "$client/.sdkmanrc"
 sdk env install
+cp $client/.devcontainer/smpl_edcadapter/.settings.xml $HOME/.m2/settings.xml
 curl https://logdy.dev/install-silent.sh | sh
 
 helm version

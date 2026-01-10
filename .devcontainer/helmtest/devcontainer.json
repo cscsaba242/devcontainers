@@ -1,6 +1,6 @@
 {
-  "name": "smpl_edcadapter", 
-  "image": "fsmpl_edcadapter_ubuntu2204:latest",
+  "name": "helmtest", 
+  "image": "ubuntu:22.04",
   "remoteUser": "root",
   "containerEnv": {
     "DEBIAN_FRONTEND": "noninteractive",
@@ -9,11 +9,11 @@
     "HTTPS_PROXY": "http://tudas-proxy.rd.hu.t-internal.com:3128",
     "JAVA_TOOL_OPTIONS": "-Dhttp.proxyHost=tudas-proxy.rd.hu.t-internal.com -Dhttp.proxyPort=3128 -Dhttps.proxyHost=tudas-proxy.rd.hu.t-internal.com -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts="
   },
-  "initializeCommand": "bash ~/github/devcontainers/.devcontainer/smpl_edcadapter/initializeCommand.sh",
-  "postCreateCommand": "bash /workspaces/devcontainers/.devcontainer/smpl_edcadapter/postCreateCommand.sh",
+  "initializeCommand": "bash ~/github/devcontainers/.devcontainer/helmtest/initializeCommand.sh",
+  "postCreateCommand": "bash /workspaces/devcontainers/.devcontainer/helmtest/postCreateCommand.sh",
   "mounts": [
-    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
-    "source=/home/cscsaba/projects/SIMPL/edcconnectoradapter,target=/workspaces/devcontainers/edcconnectoradapter,type=bind"
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    // "source=/home/cscsaba/projects/SIMPL,target=/workspaces/devcontainers/SIMPL,type=bind"
   ],
   "customizations": {
     "vscode": {

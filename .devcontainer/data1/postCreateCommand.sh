@@ -1,11 +1,11 @@
 #!/bin/bash
-SECONDS=0
-client=/workspaces/devcontainers/.devcontainer/smpl_edcadapter
+SECONDS=0 
+client=/workspaces/devcontainers/.devcontainer/edcconnectoradapter
 echo "SETTING PROXIES"
 
 cp "${client}/95proxies" /etc/apt/apt.conf.d/95proxies
 apt-get update
-apt-get install -y docker.io curl build-essential git libssl-dev libdbus-1-dev pkg-config unzip zip mitmproxy vim net-tools tmux tcpdump lsof systemd
+apt-get install -y docker.io curl build-essential git libssl-dev libdbus-1-dev pkg-config unzip zip mitmproxy vim net-tools tmux tcpdump lsof systemd mc
 git config --global --add safe.directory "/workspaces"
 
 echo "helm"
