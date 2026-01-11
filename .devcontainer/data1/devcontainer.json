@@ -1,16 +1,16 @@
 {
   "name": "data1", 
-  "image": "fsmpl_edcadapter_ubuntu2204:latest",
   "remoteUser": "root",
-  "containerEnv": {
-    "DEBIAN_FRONTEND": "noninteractive",
-    "PROJECT_RELEASE_VERSION": "",
-    "HTTP_PROXY": "http://tudas-proxy.rd.hu.t-internal.com:3128",
-    "HTTPS_PROXY": "http://tudas-proxy.rd.hu.t-internal.com:3128",
-    "JAVA_TOOL_OPTIONS": "-Dhttp.proxyHost=tudas-proxy.rd.hu.t-internal.com -Dhttp.proxyPort=3128 -Dhttps.proxyHost=tudas-proxy.rd.hu.t-internal.com -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts="
-  },
-  "initializeCommand": "bash ~/github/devcontainers/.devcontainer/edcconnectoradapter/initializeCommand.sh",
-  "postCreateCommand": "bash /workspaces/devcontainers/.devcontainer/edcconnectoradapter/postCreateCommand.sh",
+   "build": {
+    "dockerfile": "Dockerfile",
+      "args": {
+      "HTTP_PROXY": "http://tudas-proxy.rd.hu.t-internal.com:3128",
+      "HTTPS_PROXY": "http://tudas-proxy.rd.hu.t-internal.com:3128",
+      "JAVA_TOOL_OPTIONS": "-Dhttp.proxyHost=tudas-proxy.rd.hu.t-internal.com -Dhttp.proxyPort=3128 -Dhttps.proxyHost=tudas-proxy.rd.hu.t-internal.com -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts=",
+      "NO_PROXY": ""
+      }
+    },  
+  "initializeCommand": "bash ~/github/devcontainers/.devcontainer/data1/initializeCommand.sh",
   "mounts": [
     "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
     "source=/home/cscsaba/projects/SIMPL,target=/workspaces/devcontainers/SIMPL,type=bind"
